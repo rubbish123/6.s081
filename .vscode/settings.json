@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "defs.h": "c"
+        "defs.h": "c",
+        "atomic": "c",
+        "condition_variable": "c",
+        "future": "c"
     }
 }

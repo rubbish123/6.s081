@@ -98,7 +98,17 @@ sys_uptime(void)
 }
 
 uint64 sys_sigalarm(){
-  printf("sys_sigalarm()\n");
+  int ticks;
+  if(argint(0, &ticks) < 0)
+    return -1;
+  uint64 addr;
+  if(argaddr(1,&addr)<0){
+    return -1;
+  }
+  // printf("ticks:%d\n",ticks);
+  // printf("addr:%p\n",addr);
+  myproc()->ticks=ticks;
+  myproc()->handler=addr;
   return 0;
 }
 uint64 sys_sigreturn(){
